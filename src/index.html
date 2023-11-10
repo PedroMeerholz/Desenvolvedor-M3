@@ -9,32 +9,157 @@
   <link rel="stylesheet" href="main.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="style.css"/>
-  </head>
+  <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css"/>
+</head>
 
 <body>
   <header>
-    <div class="header">
-      <!-- Imagem -->
+    <div class="header-content">
       <img src="./img/logo-m3.png" alt="Logo M3" />
-      <!-- Sacola -->
       <span class="material-symbols-outlined">shopping_bag</span>
     </div>
   </header>
-  <div>
-    <!-- [Título] Blusas -->
-    <!-- Ordenar por -->
-  </div>
-  <div>
-    <div>
-      <!-- Filtro cores -->
-      <!-- Filtro tamanhos -->
-      <!-- Filtro preços -->
+  <main>
+    <div class="section-header">
+      <h1 class="section-title">Blusas</h1>
+      <select >
+        <option value="" disabled selected>Ordenar por:</option>
+        <option value="Mais recentes">Mais recentes</option>
+        <option value="Menor preço">Menor preço</option>
+        <option value="Maior preço">Maior preço</option>
+      </select>
     </div>
-    <div>
-      <!-- Produtos -->
+    <div class="content">
+      <div>
+        <div class="filter-subsection">
+          <h2 class="filter-title">CORES</h2>
+          <div>
+            <input type="checkbox" id="amarelo" checked />
+            <label for="amarelo">Amarelo</label>
+          </div>
+          <div>
+            <input type="checkbox" id="azul" />
+            <label for="azul">Azul</label>
+          </div>
+          <div>
+            <input type="checkbox" id="branco" />
+            <label for="branco">Branco</label>
+          </div>
+          <div>
+            <input type="checkbox" id="cinza" />
+            <label for="cinza">Cinza</label>
+          </div>
+          <div>
+            <input type="checkbox" id="laranja" />
+            <label for="laranja">Laranja</label>
+          </div>
+          <div>
+            <input type="checkbox" id="verde" />
+            <label for="verde">Verde</label>
+          </div>
+          <div>
+            <input type="checkbox" id="vermelho" />
+            <label for="vermelho">Vermelho</label>
+          </div>
+          <div>
+            <input type="checkbox" id="preto" />
+            <label for="preto">Preto</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rosa" />
+            <label for="rosa">Rosa</label>
+          </div>
+          <div>
+            <input type="checkbox" id="vinho" />
+            <label for="vinho">Vinho</label>
+          </div>
+        </div>
+        <div class="size-filter-subsection">
+          <h2 class="filter-title">TAMANHO</h2>
+          <div class="options-row">
+            <div class="size-filter-option">
+              <input type="checkbox" id="p-size"/>
+              <label for="p-size" class="test-label">P</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="m-size" />
+              <label for="m-size" class="test-label">M</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="g-size" />
+              <label for="g-size" class="test-label">G</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="gg-size" />
+              <label for="gg-size" class="test-label">GG</label>
+            </div>
+          </div>
+          <div class="options-row">
+            <div class="size-filter-option">
+              <input type="checkbox" id="u-size" />
+              <label for="u-size" class="test-label">U</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="36-size" />
+              <label for="36-size" class="test-label">36</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="38-size" />
+              <label for="38-size" class="test-label">38</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="40-size" />
+              <label for="40-size" class="test-label">40</label>
+            </div>
+          </div>
+          <div class="options-row">
+            <div class="size-filter-option">
+              <input type="checkbox" id="42-size" />
+              <label for="42-size" class="test-label">42</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="44-size" />
+              <label for="44-size" class="test-label">44</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="46-size" />
+              <label for="46-size" class="test-label">46</label>
+            </div>
+            <div class="invisible-size-filter-option">
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="filter-subsection">
+          <h2 class="filter-title">FAIXA DE PREÇO</h2>
+          <div>
+            <input type="checkbox" id="0-50"/>
+            <label for="0-50">de R$0 até R$50</label>
+          </div>
+          <div>
+            <input type="checkbox" id="51-150"/>
+            <label for="51-150">de R$51 até R$150</label>
+          </div>
+          <div>
+            <input type="checkbox" id="151-300"/>
+            <label for="151-300">de R$151 até R$300</label>
+          </div>
+          <div>
+            <input type="checkbox" id="301-500"/>
+            <label for="301-500">de R$301 até R$500</label>
+          </div>
+          <div>
+            <input type="checkbox" id="500+"/>
+            <label for="500+">a partir de R$500</label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- Produtos -->
+      </div>
     </div>
-  </div>
+  </main>
 </body>
 
 <script src="bundle.js"></script>
