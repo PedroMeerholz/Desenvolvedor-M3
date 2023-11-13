@@ -34,7 +34,7 @@ main {
 .content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 90%;
 }
 
@@ -100,4 +100,53 @@ main {
 
 .size-filter-subsection input[type=checkbox]:checked + label {
     border: 2px solid #00C0EE;
+}
+
+input[type=button] {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 7px, 49px;
+    width: 195px;
+    height: 33px;
+}
+
+.product-text-align {
+    text-align: center;
+}
+
+.product-title {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#product-list {
+    width: 50%
+}
+
+.product-list-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8%;
+}
+
+.price-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40px;
+    margin: 15px auto;
+}
+
+.price-info {
+    font-size: 16px;
+}
+
+.product-price {
+    font-weight: 700;
+}
+
+.payment-info {
+    color: #666666;
+    font-size: 16px;
 }
