@@ -85,7 +85,7 @@ main {
     height: 32px;
 }
 
-.test-label {
+.size-filter-label {
     display: inline-flex;
     align-items: center;
     justify-content: center;

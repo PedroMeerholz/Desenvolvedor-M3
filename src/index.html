@@ -30,7 +30,7 @@
         <option value="Maior preço">Maior preço</option>
       </select>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <div>
         <div class="filter-subsection">
           <h2 class="filter-title">CORES</h2>
@@ -75,56 +75,56 @@
             <label for="vinho">Vinho</label>
           </div>
         </div>
-        <div class="size-filter-subsection">
+        <div class="size-filter-subsection" id="size-filter-subsection">
           <h2 class="filter-title">TAMANHO</h2>
           <div class="options-row">
             <div class="size-filter-option">
-              <input type="checkbox" id="p-size"/>
-              <label for="p-size" class="test-label">P</label>
+              <input type="checkbox" id="p-size" value="P"/>
+              <label for="p-size" class="size-filter-label">P</label>
             </div>
             <div class="size-filter-option">
-              <input type="checkbox" id="m-size" />
-              <label for="m-size" class="test-label">M</label>
+              <input type="checkbox" id="m-size" value="M"/>
+              <label for="m-size" class="size-filter-label">M</label>
             </div>
             <div class="size-filter-option">
-              <input type="checkbox" id="g-size" />
-              <label for="g-size" class="test-label">G</label>
+              <input type="checkbox" id="g-size" value="G"/>
+              <label for="g-size" class="size-filter-label">G</label>
             </div>
             <div class="size-filter-option">
-              <input type="checkbox" id="gg-size" />
-              <label for="gg-size" class="test-label">GG</label>
-            </div>
-          </div>
-          <div class="options-row">
-            <div class="size-filter-option">
-              <input type="checkbox" id="u-size" />
-              <label for="u-size" class="test-label">U</label>
-            </div>
-            <div class="size-filter-option">
-              <input type="checkbox" id="36-size" />
-              <label for="36-size" class="test-label">36</label>
-            </div>
-            <div class="size-filter-option">
-              <input type="checkbox" id="38-size" />
-              <label for="38-size" class="test-label">38</label>
-            </div>
-            <div class="size-filter-option">
-              <input type="checkbox" id="40-size" />
-              <label for="40-size" class="test-label">40</label>
+              <input type="checkbox" id="gg-size" value="GG"/>
+              <label for="gg-size" class="size-filter-label">GG</label>
             </div>
           </div>
           <div class="options-row">
             <div class="size-filter-option">
-              <input type="checkbox" id="42-size" />
-              <label for="42-size" class="test-label">42</label>
+              <input type="checkbox" id="u-size" value="U"/>
+              <label for="u-size" class="size-filter-label">U</label>
             </div>
             <div class="size-filter-option">
-              <input type="checkbox" id="44-size" />
-              <label for="44-size" class="test-label">44</label>
+              <input type="checkbox" id="36-size" value="36"/>
+              <label for="36-size" class="size-filter-label">36</label>
             </div>
             <div class="size-filter-option">
-              <input type="checkbox" id="46-size" />
-              <label for="46-size" class="test-label">46</label>
+              <input type="checkbox" id="38-size" value="38"/>
+              <label for="38-size" class="size-filter-label">38</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="40-size" value="40"/>
+              <label for="40-size" class="size-filter-label">40</label>
+            </div>
+          </div>
+          <div class="options-row">
+            <div class="size-filter-option">
+              <input type="checkbox" id="42-size" value="42"/>
+              <label for="42-size" class="size-filter-label">42</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="44-size" value="44"/>
+              <label for="44-size" class="size-filter-label">44</label>
+            </div>
+            <div class="size-filter-option">
+              <input type="checkbox" id="46-size" value="46"/>
+              <label for="46-size" class="size-filter-label">46</label>
             </div>
             <div class="invisible-size-filter-option">
               <p></p>
@@ -155,8 +155,9 @@
           </div>
         </div>
       </div>
+      <script src="js/sizeFilter.js" type="module"></script>
       <div id="product-list">
-        <script src="js/apiFetch.js" type="module"></script>
+        <script src="js/buildCatalog.js" type="module"></script>
       </div>
     </div>
   </main>

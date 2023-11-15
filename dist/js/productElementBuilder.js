@@ -1,4 +1,4 @@
-export default function createProductElement(image, name, price, parcelamento) {
+export function createProductElement(image, name, price, parcelamento) {
     let productElement = document.createElement("div");
     let productFigure = createProductFigureElement(image, name);
     let priceInfoContainer = createPriceInfoContainer(`R\$${price}`, `até ${parcelamento[0]}x de R\$${parcelamento[1]}`);
