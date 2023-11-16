@@ -1,9 +1,6 @@
 import { createProductElement, createProductListRowElement } from "./productElementBuilder.js";
 
-
-export default async function buildCatalog(filters = { 'size': [], 'color': [] }) {
-    console.log(filters);
-
+export default async function buildCatalog(filters = { 'size': [], 'color': [], 'price': [] }) {
     const query = await fetch('http://localhost:5000/products', {
         method: 'GET'
     });
@@ -13,15 +10,32 @@ export default async function buildCatalog(filters = { 'size': [], 'color': [] }
     clearProductList(productListElement);
 
     let filteredProducts;
-    if (filters['size'].length > 0 && filters['color'].length > 0) {
+    if (filters['size'].length > 0) {
         filteredProducts = filterBySize(filters['size'], products);
-        filteredProducts = filterByColor(filters['color'], filteredProducts);
+        if (filters['color'].length > 0) {
+            filteredProducts = filterByColor(filters['color'], filteredProducts);
+        }
+        if (filters['price'].length > 0) {
+            filteredProducts = filterByPrice(filters['price'], filteredProducts);
+        }
         appendCatalogRows(productListElement, filteredProducts);
-    } else if (filters['size'].length > 0 && filters['color'].length === 0) {
-        filteredProducts = filterBySize(filters['size'], products);
-        appendCatalogRows(productListElement, filteredProducts);
-    } else if (filters['size'].length === 0 && filters['color'].length > 0) {
+    } else if (filters['color'].length > 0) {
         filteredProducts = filterByColor(filters['color'], products);
+        if (filters['size'].length > 0) {
+            filteredProducts = filterBySize(filters['size'], filteredProducts);
+        }
+        if (filters['price'].length > 0) {
+            filteredProducts = filterByPrice(filters['price'], filteredProducts);
+        }
+        appendCatalogRows(productListElement, filteredProducts);
+    } else if (filters['price'].length > 0) {
+        filteredProducts = filterByPrice(filters['price'], products);
+        if (filters['size'].length > 0) {
+            filteredProducts = filterBySize(filters['size'], filteredProducts);
+        }
+        if (filters['color'].length > 0) {
+            filteredProducts = filterByColor(filters['color'], filteredProducts);
+        }
         appendCatalogRows(productListElement, filteredProducts);
     } else {
         appendCatalogRows(productListElement, products);
@@ -55,6 +69,21 @@ function filterByColor(filters, products) {
     filters.forEach(color => {
         products.forEach(product => {
             if (product.color.includes(color)) {
+                if (!filteredProducts.includes(product)) {
+                    filteredProducts.push(product);
+                }
+            }
+        });
+    });
+    return filteredProducts;
+}
+
+function filterByPrice(filters, products) {
+    let filteredProducts = [];
+    filters.forEach(prices => {
+        products.forEach(product => {
+            const intPrices = String(prices).split("-");
+            if (product.price >= parseInt(intPrices[0]) && product.price <= parseInt(intPrices[1])) {
                 if (!filteredProducts.includes(product)) {
                     filteredProducts.push(product);
                 }

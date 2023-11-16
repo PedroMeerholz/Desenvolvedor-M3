@@ -75,7 +75,7 @@
             <label for="vinho">Vinho</label>
           </div>
         </div>
-        <div class="size-filter-subsection" id="size-filter-subsection">
+        <div class="size-filter-subsection">
           <h2 class="filter-title">TAMANHO</h2>
           <div class="options-row">
             <div class="size-filter-option">
@@ -133,29 +133,29 @@
         </div>
         <div class="filter-subsection">
           <h2 class="filter-title">FAIXA DE PREÇO</h2>
-          <div>
-            <input type="checkbox" id="0-50"/>
+          <div class="price-filter-option">
+            <input type="checkbox" id="0-50" value="0-50" />
             <label for="0-50">de R$0 até R$50</label>
           </div>
-          <div>
-            <input type="checkbox" id="51-150"/>
+          <div class="price-filter-option">
+            <input type="checkbox" id="51-150" value="51-150" />
             <label for="51-150">de R$51 até R$150</label>
           </div>
-          <div>
-            <input type="checkbox" id="151-300"/>
+          <div class="price-filter-option">
+            <input type="checkbox" id="151-300" value="151-300" />
             <label for="151-300">de R$151 até R$300</label>
           </div>
-          <div>
-            <input type="checkbox" id="301-500"/>
+          <div class="price-filter-option">
+            <input type="checkbox" id="301-500" value="301-500" />
             <label for="301-500">de R$301 até R$500</label>
           </div>
-          <div>
-            <input type="checkbox" id="500+"/>
+          <div class="price-filter-option">
+            <input type="checkbox" id="500+" value="501" />
             <label for="500+">a partir de R$500</label>
           </div>
         </div>
       </div>
-      <script src="js/sizeFilter.js" type="module"></script>
+      <script src="js/filters.js" type="module"></script>
       <div id="product-list">
         <script src="js/buildCatalog.js" type="module"></script>
       </div>
