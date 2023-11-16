@@ -9,21 +9,22 @@ header {
 .header-content {
     display: flex;
     justify-content: space-around;
-    width: 90%;
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
 main {
-    width: 90%;
+    margin: auto 14%
 }
 
 .section-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 3%;
+    margin-right: 12.5%;
     margin-bottom: 5%;
+    margin-left: 12.5%
 }
 
 .section-title {
@@ -35,7 +36,6 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 90%;
 }
 
 .filter-subsection {
