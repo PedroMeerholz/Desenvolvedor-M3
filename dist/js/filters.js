@@ -51,7 +51,6 @@ priceFilters.forEach(filter => {
     filter.addEventListener("click", (event) => {
         const input = filter.firstElementChild;
         const inputValue = input.value;
-        console.log(inputValue);
         if (event.target.localName === 'input') {
             if (!requiredFilters['price'].includes(inputValue)) {
                 requiredFilters['price'].push(inputValue);

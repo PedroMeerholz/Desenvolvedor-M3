@@ -42,6 +42,12 @@ export default async function buildCatalog(filters = { 'size': [], 'color': [], 
     }
 }
 
+export function buildSortedCatalog(products) {
+    let productListElement = document.getElementById('product-list');
+    clearProductList(productListElement);
+    appendCatalogRows(productListElement, products);
+}
+
 function clearProductList(productListElement) {
     if (productListElement.children.length > 0) {
         while (productListElement.firstChild) {
@@ -119,7 +125,7 @@ function buildRow(products) {
     let productListRow = createProductListRowElement();
     for (let i = 0; i < products.length; i++) {
         let product = products[i];
-        let productElement = createProductElement(product.image, product.name, product.price, product.parcelamento);
+        let productElement = createProductElement(product.image, product.name, product.price, product.date, product.parcelamento);
         productListRow.appendChild(productElement);
     }
     return productListRow;

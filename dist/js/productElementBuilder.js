@@ -1,10 +1,12 @@
-export function createProductElement(image, name, price, parcelamento) {
+export function createProductElement(image, name, price, date, parcelamento) {
     let productElement = document.createElement("div");
     let productFigure = createProductFigureElement(image, name);
     let priceInfoContainer = createPriceInfoContainer(`R\$${price}`, `até ${parcelamento[0]}x de R\$${parcelamento[1]}`);
+    let dateSpan = createDateSpan(date);
     let buyButton = createBuyButtonElement();
     productElement.appendChild(productFigure);
     productElement.appendChild(priceInfoContainer);
+    productElement.appendChild(dateSpan);
     productElement.appendChild(buyButton);
     return productElement;
 }
@@ -59,6 +61,12 @@ function createProductPaymentInfoElement(paymentInfo) {
     productPaymentInfoElement.classList = ["product-text-align", "price-info", "payment-info"];
     productPaymentInfoElement.textContent = paymentInfo;
     return productPaymentInfoElement;
+}
+
+function createDateSpan(date) {
+    let dateSpan = document.createElement('span');
+    dateSpan.id = date;
+    return dateSpan;
 }
 
 function createBuyButtonElement() {
