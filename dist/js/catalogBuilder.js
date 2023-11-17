@@ -1,4 +1,4 @@
-import { createProductElement, createProductListRowElement } from "./productElementBuilder.js";
+import { createProductElement } from "./productElementBuilder.js";
 
 export default async function buildCatalog(filters = { 'size': [], 'color': [], 'price': [] }) {
     const query = await fetch('http://localhost:5000/products', {
@@ -18,7 +18,7 @@ export default async function buildCatalog(filters = { 'size': [], 'color': [], 
         if (filters['price'].length > 0) {
             filteredProducts = filterByPrice(filters['price'], filteredProducts);
         }
-        appendCatalogRows(productListElement, filteredProducts);
+        appendProductsOnList(productListElement, filteredProducts);
     } else if (filters['color'].length > 0) {
         filteredProducts = filterByColor(filters['color'], products);
         if (filters['size'].length > 0) {
@@ -27,7 +27,7 @@ export default async function buildCatalog(filters = { 'size': [], 'color': [], 
         if (filters['price'].length > 0) {
             filteredProducts = filterByPrice(filters['price'], filteredProducts);
         }
-        appendCatalogRows(productListElement, filteredProducts);
+        appendProductsOnList(productListElement, filteredProducts);
     } else if (filters['price'].length > 0) {
         filteredProducts = filterByPrice(filters['price'], products);
         if (filters['size'].length > 0) {
@@ -36,16 +36,16 @@ export default async function buildCatalog(filters = { 'size': [], 'color': [], 
         if (filters['color'].length > 0) {
             filteredProducts = filterByColor(filters['color'], filteredProducts);
         }
-        appendCatalogRows(productListElement, filteredProducts);
+        appendProductsOnList(productListElement, filteredProducts);
     } else {
-        appendCatalogRows(productListElement, products);
+        appendProductsOnList(productListElement, products);
     }
 }
 
 export function buildSortedCatalog(products) {
     let productListElement = document.getElementById('product-list');
     clearProductList(productListElement);
-    appendCatalogRows(productListElement, products);
+    appendProductsOnList(productListElement, products);
 }
 
 function clearProductList(productListElement) {
@@ -99,34 +99,10 @@ function filterByPrice(filters, products) {
     return filteredProducts;
 }
 
-function appendCatalogRows(productListElement, products) {
-    const catalogRows = buildCatalogRows(products);
-    catalogRows.forEach(row => {
-        productListElement.appendChild(row);
+function appendProductsOnList(productListElement, products) {
+    let productElement;
+    products.forEach(product => {
+        productElement = createProductElement(product.image, product.name, product.price, product.date, product.parcelamento);
+        productListElement.appendChild(productElement);
     });
-}
-
-export function buildCatalogRows(products) {
-    let productListRows = [];
-    let productListRow = createProductListRowElement();
-    if (products.length < 3) {
-        let productListRow = buildRow(products);
-        productListRows.push(productListRow);
-    } else {
-        for (let i = 0; i < products.length; i += 3) {
-            productListRow = buildRow(products.slice(i, i + 3));
-            productListRows.push(productListRow);
-        }
-    }
-    return productListRows;
-}
-
-function buildRow(products) {
-    let productListRow = createProductListRowElement();
-    for (let i = 0; i < products.length; i++) {
-        let product = products[i];
-        let productElement = createProductElement(product.image, product.name, product.price, product.date, product.parcelamento);
-        productListRow.appendChild(productElement);
-    }
-    return productListRow;
 }

@@ -11,12 +11,6 @@ export function createProductElement(image, name, price, date, parcelamento) {
     return productElement;
 }
 
-export function createProductListRowElement() {
-    let productListRow = document.createElement("div");
-    productListRow.classList = ["product-list-row"];
-    return productListRow;
-}
-
 function createProductFigureElement(imgPath, productName) {
     let productFigureElement = document.createElement("figure");
     let productImageElement = createProductImageElement(imgPath);
